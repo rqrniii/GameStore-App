@@ -156,12 +156,12 @@ body {
 }
 
 .play-btn {
-  margin-right: 10px; /* Add spacing between the buttons */
+  margin-right: 10px;
 }
 
 .play-btn button {
-  width: 500px; /* Adjust width as needed */
-  height: 40px; /* Adjust height as needed */
+  width: 500px; 
+  height: 40px; 
   font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;

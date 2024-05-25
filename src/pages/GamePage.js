@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react"
 import axios from "axios"
 
@@ -36,7 +35,7 @@ export const GamePage = () => {
 	<div className="container">
 	<header className="App-header">
                     <div className="logo-container">
-                        <img src={require('C:/Users/r.alqarni/game-app/src/joystick.png')} alt="Game Store Logo" className="logo" />
+                        <img src={require('../assets/images/joystick.png')} alt="Game Store Logo" className="logo" />
                         <h2>Game Store</h2>
                     </div>
                 </header>
@@ -50,7 +49,7 @@ export const GamePage = () => {
 				</Link>
 			</div>
 			<div className="wish">
-				<img src={require('C:/Users/r.alqarni/game-app/src/heart.png')} alt="Add to Wishlist" />
+				<img src={require('../assets/images/heart.png')} alt="Add to Wishlist" />
 			</div>
 		</div>
 

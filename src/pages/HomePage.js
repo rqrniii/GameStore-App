@@ -40,7 +40,7 @@ export const HomePage = () => {
             <div className="container">
                 <header className="App-header">
                     <div className="logo-container">
-                        <img src={require('C:/Users/r.alqarni/game-app/src/joystick.png')} alt="Game Store Logo" className="logo" />
+                        <img src={require('../assets/images/joystick.png')} alt="Game Store Logo" className="logo" />
                         <h2>Game Store</h2>
                     </div>
                     <form className="search-bar">

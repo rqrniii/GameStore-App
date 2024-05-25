@@ -1,5 +1,5 @@
 
-React JS GameStore App with Node.js
+## React JS GameStore App with Node.js
 
 this web app allows users to browse and explore a collection of free-to-play games. 
 Users can view game details, search for specific games, and access individual game pages to learn more about a particular game and play it if they wish.

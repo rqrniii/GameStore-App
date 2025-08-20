@@ -5,7 +5,7 @@ steps:
       [
         'build',
         '-t',
-        'us-central1-docker.pkg.dev/$PROJECT_ID/salam-builds/react-app:latest',
+        'me-central2-docker.pkg.dev/$PROJECT_ID/salam-builds/react-app:latest',
         '.'
       ]
 
@@ -14,11 +14,11 @@ steps:
     args:
       [
         'push',
-        'us-central1-docker.pkg.dev/$PROJECT_ID/salam-builds/react-app:latest'
+        'me-central2-docker.pkg.dev/$PROJECT_ID/salam-builds/react-app:latest'
       ]
 
 images:
-  - 'us-central1-docker.pkg.dev/$PROJECT_ID/salam-builds/react-app:latest'
+  - 'me-central2-docker.pkg.dev/$PROJECT_ID/salam-builds/react-app:latest'
 
 options:
   logging: CLOUD_LOGGING_ONLY

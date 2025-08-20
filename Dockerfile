@@ -1,21 +1,16 @@
-# Step 1: Build the React app
-FROM node:22-alpine AS builder
+FROM node:22-alpine
 
 WORKDIR /app
 COPY package*.json ./
-RUN npm install --frozen-lockfile
+RUN npm install --production
 
 COPY . .
+
+# Build React app
 RUN npm run build
 
-# Step 2: Serve with Nginx
-FROM nginx:stable-alpine AS runner
+# Install "serve" globally to serve static files
+RUN npm install -g serve
 
-# Copy React build files to nginx html folder
-COPY --from=builder /app/build /usr/share/nginx/html
-
-# Copy custom nginx config (optional)
-# COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 3000
+CMD ["serve", "-s", "build", "-l", "3000"]

@@ -1,0 +1,17 @@
+# cloudbuild.yaml
+# Build a React app and serve it with Nginx using Docker
+steps:
+  # Step 1: Build the Docker image
+  - name: 'us-central1-docker.pkg.dev/salam-378510/salam-builds/react-app:latest'
+    args: ['build', '-t', 'salam-builds/salam-378510/react-app', '.']
+
+# Push the Docker image to Artifact Registry or Container Registry
+images:
+  - 'us-central1-docker.pkg.dev/salam-378510/salam-builds/react-app:latest'
+
+# Use your custom service account (replace with your actual SA email)
+serviceAccount: projects/salam-378510/serviceAccounts/cloud-build-sa@salam-378510.iam.gserviceaccount.com
+
+# Logging option to satisfy Cloud Build requirements
+options:
+  logging: CLOUD_LOGGING_ONLY

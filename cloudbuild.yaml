@@ -1,7 +1,7 @@
 substitutions:
   _VM_NAME: "gcp-stg-app-01"
   _VM_ZONE: "me-central2-c"
-  _IMAGE_NAME: "me-central2-docker.pkg.dev/$PROJECT_ID/salam-builds/react-app"
+  _IMAGE_NAME: "me-central2-docker.pkg.dev/$PROJECT_ID/salam-builds/react-app:latest"
 
 steps:
   # Step 1: Build the Docker image

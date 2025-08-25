@@ -1,7 +1,7 @@
 substitutions:
   _VM_NAME: "gcp-stg-app-01"
   _VM_ZONE: "me-central2-c"
-  _IMAGE_NAME: "me-central2-docker.pkg.dev/$PROJECT_ID/salam-builds/react-app:latest"
+  _IMAGE_PATH: "me-central2-docker.pkg.dev/${PROJECT_ID}/salam-builds/react-app"
 
 steps:
   # Step 1: Build the Docker image
@@ -10,18 +10,18 @@ steps:
       [
         'build',
         '-t',
-        '$_IMAGE_NAME:$SHORT_SHA',
+        '$_IMAGE_PATH:$SHORT_SHA',
         '-t',
-        '$_IMAGE_NAME:latest',
+        '$_IMAGE_PATH:latest',
         '.'
       ]
 
   # Step 2: Push the images to Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', '$_IMAGE_NAME:$SHORT_SHA']
+    args: ['push', '$_IMAGE_PATH:$SHORT_SHA']
 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', '$_IMAGE_NAME:latest']
+    args: ['push', '$_IMAGE_PATH:latest']
 
   # Step 3: SSH into VM and deploy with docker-compose
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -37,7 +37,7 @@ steps:
           version: '3.8'
           services:
             react-app:
-              image: $_IMAGE_NAME:latest
+              image: $_IMAGE_PATH:latest
               ports:
                 - '8080:8080'
               restart: unless-stopped
@@ -51,8 +51,8 @@ steps:
         "
 
 images:
-  - '$_IMAGE_NAME:$SHORT_SHA'
-  - '$_IMAGE_NAME:latest'
+  - '$_IMAGE_PATH:$SHORT_SHA'
+  - '$_IMAGE_PATH:latest'
 
 options:
   logging: CLOUD_LOGGING_ONLY
